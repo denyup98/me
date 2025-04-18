@@ -1,0 +1,1973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deni Yupiki - Continuous Improvement Enthusiast</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <style>
+        :root {
+            --primary: #2c5e92;
+            --secondary: #4c9a7d;
+            --dark: #2d3748;
+            --light: #f7fafc;
+            --gray: #718096;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 10%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            padding: 0.5rem 0;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: var(--primary);
+        }
+
+        nav a:hover::after,
+        nav a.active::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+        }
+        
+        /* Styling Dropdown */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    top: 100%;
+    left: 0;
+}
+
+.dropdown-content li {
+    padding: 10px;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+@media (max-width: 768px) {
+    .dropdown-content {
+        display: none; /* Sembunyikan submenu awalnya */
+    }
+    .dropdown.active .dropdown-content {
+        display: block; /* Tampilkan submenu saat dropdown aktif */
+    }
+}
+
+        /* Hero Section with Photo */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 10%;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #f8fafc 0%, #f0f4f8 100%);
+            margin-top: 80px;
+        }
+        
+        .hero-content {
+            flex: 1;
+            z-index: 2;
+            max-width: 600px;
+        }
+        
+        .hero-photo {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2;
+        }
+        
+        .photo-container {
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid white;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .photo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            line-height: 1.2;
+        }
+        
+        .hero h2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--gray);
+            margin-bottom: 2rem;
+        }
+        
+        .stats {
+            display: flex;
+            gap: 2rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            background: white;
+            padding: 1rem 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            min-width: 250px;
+        }
+        
+        .stat-icon {
+            font-size: 1.5rem;
+            color: var(--secondary);
+        }
+        
+        .stat-text span {
+            display: block;
+            font-weight: 600;
+        }
+        
+        .stat-text .highlight {
+            color: var(--secondary);
+            font-weight: 700;
+        }
+        
+        .progress-bar {
+            height: 5px;
+            background: #e2e8f0;
+            border-radius: 5px;
+            margin-top: 0.5rem;
+            overflow: hidden;
+        }
+        
+        .progress {
+            height: 100%;
+            background: var(--secondary);
+            width: 0;
+            transition: width 1.5s ease;
+        }
+        
+        /* Summary Section */
+        .summary {
+            padding: 5rem 10%;
+            background: white;
+        }
+        
+        .summary-card {
+            background: white;
+            border-radius: 15px;
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transform: rotate(-1deg);
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .summary-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+        }
+        
+        .summary h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--primary);
+            text-align: center;
+        }
+        
+        .summary p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .summary p b {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        /* Work Experience */
+        .experience {
+            padding: 5rem 10%;
+            background: #f8fafc;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            color: var(--primary);
+            text-align: center;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--secondary);
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: var(--secondary);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            width: 100%;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            padding-right: calc(50% + 2rem);
+            text-align: right;
+        }
+        
+        .timeline-item:nth-child(even) {
+            padding-left: calc(50% + 2rem);
+            text-align: left;
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--secondary);
+            z-index: 1;
+        }
+        
+        .timeline-content {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .company-logo {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+            border: 2px solid var(--light);
+        }
+        
+        .company-logo img {
+            width: 80%;
+            height: 80%;
+            object-fit: contain;
+        }
+        
+        .timeline-item:nth-child(odd) .company-logo {
+            right: unset;
+            left: -20px;
+        }
+        
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .timeline-date {
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .timeline-company {
+            color: var(--gray);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+        
+        .timeline-details {
+            display: none;
+            margin-top: 1rem;
+        }
+        
+        .timeline-details.show {
+            display: block;
+        }
+        
+        .timeline-details ul {
+            list-style-position: inside;
+            padding-left: 1rem;
+        }
+        
+        .timeline-details li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .toggle-details {
+            background: none;
+            border: none;
+            color: var(--secondary);
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        /* Skills Section */
+.skills-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-top: 3rem;
+    flex-wrap: wrap;
+}
+
+.skills-category {
+    flex: 1;
+    min-width: 300px;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.skills-category h3 {
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--secondary);
+}
+
+.skills-list {
+    list-style: none;
+}
+
+.skills-list li {
+    margin-bottom: 1.2rem;
+}
+
+.skill-name {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-weight: 500;
+}
+
+.skill-bar {
+    height: 8px;
+    background: #e2e8f0;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.skill-level {
+    height: 100%;
+    border-radius: 4px;
+}
+
+.skill-level.advanced {
+    width: 90%;
+    background: var(--primary);
+}
+
+.skill-level.intermediate {
+    width: 70%;
+    background: var(--secondary);
+}
+
+.skill-level.basic {
+    width: 50%;
+    background: #fbbf24;
+}
+        
+        /* Achievements */
+        .achievements {
+            padding: 5rem 10%;
+            background: #f8fafc;
+        }
+        
+        .trophy-shelf {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .trophy-item {
+            background: white;
+            width: 150px;
+            padding: 1.5rem 1rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .trophy-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .trophy-icon {
+            font-size: 2.5rem;
+            color: #fbbf24;
+            margin-bottom: 1rem;
+        }
+        
+        .trophy-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .trophy-year {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        .trophy-tooltip {
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--dark);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease;
+            width: 200px;
+            margin-bottom: 1rem;
+        }
+        
+        .trophy-item:hover .trophy-tooltip {
+            opacity: 1;
+            transform: translateX(-50%) translateY(-10px);
+        }
+        
+        /* Education & Certifications */
+        .education {
+            padding: 5rem 10%;
+            background: white;
+        }
+        
+        .edu-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .edu-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            padding: 1.5rem;
+            width: 300px;
+            transition: all 0.3s ease;
+        }
+        
+        .edu-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .edu-icon {
+            font-size: 2rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+        
+        .edu-title {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .edu-subtitle {
+            color: var(--gray);
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .edu-desc {
+            font-size: 0.9rem;
+        }
+        
+        /* Portofolio Section */
+        .Portofolio {
+            padding: 5rem 10%;
+            background: white;
+        }
+
+        .Portofolio-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .Portofolio-tab {
+            padding: 0.5rem 1.5rem;
+            background: white;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid #e2e8f0;
+            font-weight: 500;
+        }
+
+        .Portofolio-tab.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .Portofolio-content {
+            display: none;
+        }
+
+        .Portofolio-content.active {
+            display: block;
+        }
+
+        .Portofolio-scroller {
+            display: flex;
+            overflow-x: auto;
+            gap: 2rem;
+            padding: 2rem 0;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .Portofolio-scroller::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .Portofolio-scroller::-webkit-scrollbar-track {
+            background: #e2e8f0;
+            border-radius: 10px;
+        }
+
+        .Portofolio-scroller::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 10px;
+        }
+
+        .Portofolio-item {
+            min-width: 300px;
+            scroll-snap-align: start;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .Portofolio-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .Portofolio-image {
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .Portofolio-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .Portofolio-item:hover .Portofolio-image img {
+            transform: scale(1.05);
+        }
+
+        .Portofolio-info {
+            padding: 1.5rem;
+        }
+
+        .Portofolio-info h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .Portofolio-info p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+            
+          /* CSS Lightbox di sini */
+        #lightbox {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.85);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            flex-direction: column;
+        }
+
+        #lightbox img {
+            max-width: 90%;
+            max-height: 80vh;
+            border-radius: 10px;
+        }
+
+        #lightbox .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 40px;
+            color: white;
+            cursor: pointer;
+        }
+
+        
+        /* Papers Section */
+        .papers {
+            padding: 5rem 10%;
+            background: #f8fafc;
+        }
+        
+        .papers-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .paper-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--secondary);
+        }
+        
+        .paper-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .paper-icon {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .paper-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+        
+        .paper-meta {
+            display: flex;
+            gap: 1rem;
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .paper-method {
+            font-size: 0.9rem;
+            color: var(--secondary);
+            font-style: italic;
+        }
+        
+        /* Organizational Experience */
+        .organizations {
+            padding: 5rem 10%;
+            background: white;
+        }
+        
+        .org-timeline {
+            position: relative;
+            max-width: 700px;
+            margin: 3rem auto 0;
+            padding-left: 2rem;
+        }
+        
+        .org-timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 2px;
+            background: var(--secondary);
+        }
+        
+        .org-item {
+            position: relative;
+            margin-bottom: 2rem;
+            padding-left: 2rem;
+        }
+        
+        .org-item::before {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: -8px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--primary);
+            border: 3px solid var(--secondary);
+        }
+        
+        .org-logo {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+            border: 2px solid var(--light);
+        }
+        
+        .org-logo img {
+            width: 80%;
+            height: 80%;
+            object-fit: contain;
+        }
+        
+        .org-period {
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 0.3rem;
+        }
+        
+        .org-content {
+            background: #f8fafc;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--primary);
+            position: relative;
+        }
+        
+        .org-content h3 {
+            color: var(--primary);
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+        }
+        
+        .org-content p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        /* Contact */
+        .contact {
+            padding: 5rem 10%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            text-align: center;
+        }
+        
+        .contact h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .contact-icon {
+            font-size: 1.5rem;
+        }
+        
+        .contact-link {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-link:hover {
+            text-decoration: underline;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 5rem 1rem;
+            }
+            
+            .hero-content {
+                max-width: 100%;
+                margin-bottom: 3rem;
+            }
+            
+            .photo-container {
+                width: 250px;
+                height: 250px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .header-container {
+                padding: 1rem 5%;
+            }
+            
+            nav ul {
+                gap: 1.5rem;
+            }
+            
+            .timeline-item:nth-child(odd),
+            .timeline-item:nth-child(even) {
+                padding-left: 4rem;
+                padding-right: 1rem;
+                text-align: left;
+            }
+            
+            .timeline-dot {
+                left: 2rem;
+            }
+            
+            .company-logo {
+                right: unset;
+                left: -20px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            nav {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: white;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                padding: 1rem;
+                transform: translateY(-150%);
+                transition: transform 0.3s ease;
+            }
+
+            nav.active {
+                transform: translateY(0);
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .papers-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .org-timeline {
+                padding-left: 1rem;
+            }
+            
+            .org-item {
+                padding-left: 1.5rem;
+            }
+            
+            .org-logo {
+                right: unset;
+                left: -15px;
+            }
+            
+            .Portofolio-scroller {
+                gap: 1rem;
+            }
+
+            .Portofolio-item {
+                min-width: 250px;
+            }
+        }
+        /* Styling Tombol Melayang */
+.floating-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.floating-button {
+    width: 50px;
+    height: 50px;
+    background-color: #25D366; /* Warna mirip WhatsApp */
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.floating-button:hover {
+    background-color: #128C7E; /* Warna lebih gelap saat hover */
+}
+
+/* Styling Menu Pilihan Kontak */
+.contact-menu {
+    display: none; /* Sembunyikan awalnya */
+    position: absolute;
+    bottom: 70px; /* Jarak dari tombol utama */
+    right: 0;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.contact-option {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.contact-option:hover {
+    background-color: #f0f0f0;
+}
+
+.contact-option img {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+    </style>
+</head>
+<body>
+    <!-- Floating Button -->
+<div class="floating-container">
+    <!-- Main Floating Button -->
+    <button id="floatingButton" class="floating-button">
+        <img src="plane.png" alt="Contact Us" style="width: 24px; height: 24px;">
+    </button>
+
+    <!-- Menu Pilihan Kontak -->
+    <div id="contactMenu" class="contact-menu">
+        <a href="mailto:deniyupiki11@gmail.com" class="contact-option">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg" alt="Email">
+            Email
+        </a>
+        <a href="https://wa.me/085263748817" target="_blank" class="contact-option">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+            WhatsApp
+        </a>
+        <a href="https://www.linkedin.com/in/deniyupiki target="_blank" class="contact-option">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn">
+            LinkedIn
+        </a>
+    </div>
+</div>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">DENI YUPIKI</a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <ul>
+                        <li class="dropdown">
+                            <a href="#">Competence</a>
+                            <ul class="dropdown-content">
+                                <li><a href="#skills">Skills</a></li>
+                                <li><a href="#achievements">Achievements</a></li>
+                                <li><a href="#education">Education & Certifications</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <li><a href="#Portofolio">Portofolio</a></li>
+                    <li><a href="#papers">Papers</a></li>
+                    <li><a href="#organizations">Organizations</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>DENI YUPIKI</h1>
+            <h2>Industrial Engineer | Continuous Improvement Enthusiast</h2>
+            
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-icon"><i class="fas fa-chart-line"></i></div>
+                    <div class="stat-text">
+                        <span>Line Efficiency</span>
+                        <span class="highlight">70% → 95%</span>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 95%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-icon"><i class="fas fa-bug"></i></div>
+                    <div class="stat-text">
+                        <span>Defect Rate</span>
+                        <span class="highlight">5% → 0.2%</span>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 4%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="hero-photo">
+            <div class="photo-container">
+                <!-- Replace with your actual photo -->
+                <img src="pp.jpeg" alt="Deni Yupiki Professional Photo">
+            </div>
+        </div>
+    </section>
+    
+    <!-- Summary Section -->
+    <section class="summary">
+        <h2>Professional Summary</h2>
+        <div class="summary-card">
+            <p>I am an Industrial Engineering with a strong background in Human Resource Development and Production. My experience as an Assembly Foreman has honed my skills in <b>efficiency optimization</b>, <b>quality control</b>, and <b>resource management</b>, enabling me to drive continuous improvements and enhance operational performance.</p>
+            
+            <p>I have a proven track record of increasing line efficiency from below 70% to over 95%, significantly reducing manpower and working hours. Additionally, I successfully reduced the defect ratio from 5% to 0.2%, eliminating the need for a third checking process.</p>
+            
+            <p>My ability to implement user-friendly systems has empowered leaders at all levels to effectively manage work balancing, fostering continuous improvements. Furthermore, my expertise in employee training and development allows me to strategically align workforce capabilities with process enhancements, contributing to overall organizational growth and success.</p>
+        </div>
+    </section>
+    
+    <!-- Work Experience -->
+    <section class="experience" id="experience">
+        <h2 class="section-title">Work Experience</h2>
+        
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="company-logo">
+                        <img src="SBI.png" alt="Sumitomo Logo">
+                    </div>
+                    <div class="timeline-date">03/2023 - Present</div>
+                    <h3 class="timeline-title">Production Foreman</h3>
+                    <div class="timeline-company">Sumitomo Wiring System Batam Indonesia</div>
+                    <button class="toggle-details">Show Details <i class="fas fa-chevron-down"></i></button>
+                    
+                    <div class="timeline-details">
+                        <ul>
+                            <li><b>Process Optimization</b>: Leading efforts to enhance production line efficiency. By implementing innovative strategies, I successfully increased efficiency from below 70% to over 95%, significantly reducing labour and working hours.</li>
+                            <li><b>Quality Control and Defect Reduction</b>: Developing and implementing effective quality control programs. This led to a reduction in the defect rate from 5% to 0.2%, eliminating the need for a redundant third inspection process.</li>
+                            <li><b>Management System and Continuous Improvement</b>: Designing and implementing an intuitive management system that allows leaders at all levels to easily balance workloads.</li>
+                            <li><b>Team Coordination and Communication</b>: Facilitating smooth operations and timely project completion through effective interdepartmental coordination.</li>
+                            <li><b>Innovation and Process Development</b>: Driving process innovation and evaluating new opportunities by adopting the latest technologies.</li>
+                            <li><b>Digital Transformation</b>: Designing the program, submitting proposals, and coordinating the program's implementation aimed at leveraging digital technology.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="company-logo">
+                        <img src="bigg.png" alt="Batamindo Greenfarm Logo">
+                    </div>
+                    <div class="timeline-date">02/2022 – 03/2023</div>
+                    <h3 class="timeline-title">HR & Business Process Improvement Officer</h3>
+                    <div class="timeline-company">Batamindo Greenfarm</div>
+                    <button class="toggle-details">Show Details <i class="fas fa-chevron-down"></i></button>
+                    
+                    <div class="timeline-details">
+                        <ul>
+                            <li><b>Program Development</b>: Collaborate with line managers, accountants, and senior management to create and deliver effective training programs.</li>
+                            <li><b>End-to-End Recruitment</b>: Oversee the entire recruitment process, from job posting and candidate screening to interviewing and onboarding.</li>
+                            <li><b>Induction Programs</b>: Develop and manage comprehensive induction programs for new hires, apprentices, and graduate trainees.</li>
+                            <li><b>Trainee Progress Monitoring</b>: Track and review trainee progress through feedback and discussions with managers.</li>
+                            <li><b>Training Delivery</b>: Design and deliver training materials through various methods, including classroom, online, and blended learning.</li>
+                            <li><b>Compliance and Evaluation</b>: Ensure training meets statutory requirements, and continuously evaluate and revise programs.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="company-logo">
+                        <img src="JPN.jpeg" alt="Jagar Prima Logo">
+                    </div>
+                    <div class="timeline-date">02/2021 – 10/2021</div>
+                    <h3 class="timeline-title">HR & General Affairs Officer</h3>
+                    <div class="timeline-company">Jagar Prima Nusantara</div>
+                    <button class="toggle-details">Show Details <i class="fas fa-chevron-down"></i></button>
+                    
+                    <div class="timeline-details">
+                        <ul>
+                            <li><b>End-to-End Recruitment</b>: Manage the entire recruitment process, from job posting and candidate sourcing to interviewing and onboarding.</li>
+                            <li><b>Employee Management</b>: Administer employee-related functions including salaries, BPJS, and other personnel management tasks.</li>
+                            <li><b>Financial Administration</b>: Record and manage expenses and income, and handle financial documentation.</li>
+                            <li><b>Company Administration</b>: Oversee and complete all administrative tasks essential to company operations.</li>
+                            <li><b>Purchasing and Logistics</b>: Coordinate the purchasing and delivery of merchandise.</li>
+                            <li><b>Shipbuilding Supervision</b>: Oversee shipbuilding projects, ensuring effective management and execution.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <<!-- Skills Section -->
+<section class="skills" id="skills">
+    <h2 class="section-title">Skills</h2>
+    
+    <div class="skills-container">
+        <div class="skills-category">
+            <h3>Advanced Skills</h3>
+            <ul class="skills-list">
+                <li>
+                    <span class="skill-name">Writing</span>
+                    <div class="skill-bar">
+                        <div class="skill-level advanced"></div>
+                    </div>
+                </li>
+                <li>
+                    <span class="skill-name">Production Process</span>
+                    <div class="skill-bar">
+                        <div class="skill-level advanced"></div>
+                    </div>
+                </li>
+                <li>
+                    <span class="skill-name">Performance Measurement</span>
+                    <div class="skill-bar">
+                        <div class="skill-level advanced"></div>
+                    </div>
+                </li>
+                <li>
+                    <span class="skill-name">Google Workspace</span>
+                    <div class="skill-bar">
+                        <div class="skill-level advanced"></div>
+                    </div>
+                </li>
+                <li>
+                    <span class="skill-name">Microsoft Office</span>
+                    <div class="skill-bar">
+                        <div class="skill-level advanced"></div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="skills-category">
+            <h3>Intermediate Skills</h3>
+            <ul class="skills-list">
+                <li>
+                    <span class="skill-name">Business Development</span>
+                    <div class="skill-bar">
+                        <div class="skill-level intermediate"></div>
+                    </div>
+                </li>
+                <li>
+                    <span class="skill-name">Finance</span>
+                    <div class="skill-bar">
+                        <div class="skill-level intermediate"></div>
+                    </div>
+                </li>
+                <li>
+                    <span class="skill-name">Accurate Online</span>
+                    <div class="skill-bar">
+                        <div class="skill-level intermediate"></div>
+                    </div>
+                </li>
+                <li>
+                    <span class="skill-name">Adobe Photoshop</span>
+                    <div class="skill-bar">
+                        <div class="skill-level intermediate"></div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="skills-category">
+            <h3>Basic Skills</h3>
+            <ul class="skills-list">
+                <li>
+                    <span class="skill-name">Adobe Premiere</span>
+                    <div class="skill-bar">
+                        <div class="skill-level basic"></div>
+                    </div>
+                </li>
+                <li>
+                    <span class="skill-name">SEO</span>
+                    <div class="skill-bar">
+                        <div class="skill-level basic"></div>
+                    </div>
+                </li>
+                <li>
+                    <span class="skill-name">Digital Marketing</span>
+                    <div class="skill-bar">
+                        <div class="skill-level basic"></div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</se</section>
+    
+    <!-- Achievements -->
+    <section class="achievements" id="achievements">
+        <h2 class="section-title">Achievements</h2>
+        
+        <div class="trophy-shelf">
+            <div class="trophy-item">
+                <div class="trophy-icon"><i class="fas fa-trophy"></i></div>
+                <div class="trophy-title">5x Best Efficiency Line</div>
+                <div class="trophy-year">Sumitomo, 2024</div>
+                <div class="trophy-tooltip">Recognized for production lines demonstrating best performance in efficiency, productivity, and resource utilization.</div>
+            </div>
+            
+            <div class="trophy-item">
+                <div class="trophy-icon"><i class="fas fa-medal"></i></div>
+                <div class="trophy-title">2nd Place SGA Convention</div>
+                <div class="trophy-year">Sumitomo, 2024</div>
+                <div class="trophy-tooltip">Promoted employee participation in solving operational challenges through teamwork and innovation.</div>
+            </div>
+            
+            <div class="trophy-item">
+                <div class="trophy-icon"><i class="fas fa-medal"></i></div>
+                <div class="trophy-title">2nd Place SWS Way</div>
+                <div class="trophy-year">Sumitomo, 2024</div>
+                <div class="trophy-tooltip">Applied problem-solving methods aligned with company principles to improve operations.</div>
+            </div>
+            
+            <div class="trophy-item">
+                <div class="trophy-icon"><i class="fas fa-trophy"></i></div>
+                <div class="trophy-title">1st Place Quiz SWS Way</div>
+                <div class="trophy-year">Sumitomo, 2024</div>
+                <div class="trophy-tooltip">Demonstrated mastery of company work culture guidelines and corporate work standards.</div>
+            </div>
+            
+            <div class="trophy-item">
+                <div class="trophy-icon"><i class="fas fa-award"></i></div>
+                <div class="trophy-title">2nd Place Opinion Writing</div>
+                <div class="trophy-year">BP Batam, 2020</div>
+                <div class="trophy-tooltip">Shared ideas on Batam's development, infrastructure, and social issues.</div>
+            </div>
+            
+            <div class="trophy-item">
+                <div class="trophy-icon"><i class="fas fa-lightbulb"></i></div>
+                <div class="trophy-title">2nd Place Tech Competition</div>
+                <div class="trophy-year">Ibnu Sina Univ., 2020</div>
+                <div class="trophy-tooltip">Developed practical technologies addressing real-world community problems.</div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Education & Certifications -->
+    <section class="education" id="education">
+        <h2 class="section-title">Education & Certifications</h2>
+        
+        <div class="edu-cards">
+            <div class="edu-card">
+                <div class="edu-icon"><i class="fas fa-graduation-cap"></i></div>
+                <h3 class="edu-title">Bachelor's in Industrial Engineering</h3>
+                <div class="edu-subtitle">Ibnu Sina University, 2018-2021 | GPA 3.52</div>
+                <p class="edu-desc">Academic focus on corporate management techniques, production processes, financial management, and product design.</p>
+            </div>
+            
+            <div class="edu-card">
+                <div class="edu-icon"><i class="fas fa-certificate"></i></div>
+                <h3 class="edu-title">Leadership Training</h3>
+                <div class="edu-subtitle">Sumitomo Wiring System, 2023 & 2024</div>
+                <p class="edu-desc">Covered 3 Point Control and 3D 3S frameworks, line balancing, and continuous improvement strategies.</p>
+            </div>
+            
+            <div class="edu-card">
+                <div class="edu-icon"><i class="fas fa-certificate"></i></div>
+                <h3 class="edu-title">HR Management</h3>
+                <div class="edu-subtitle">ManagementSDM.Net, 2022</div>
+                <p class="edu-desc">Comprehensive HR training including KPI design, performance appraisals, SOPs, and wage structures.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Portofolio Section -->
+    <section class="Portofolio" id="Portofolio">
+        <h2 class="section-title">Portofolio</h2>
+        
+        <div class="Portofolio-tabs">
+            <div class="Portofolio-tab active" data-tab="website">Website</div>
+            <div class="Portofolio-tab" data-tab="design">Design</div>
+            <div class="Portofolio-tab" data-tab="program">Program</div>
+        </div>
+        
+        <!-- Website Portofolio -->
+        <div class="Portofolio-content active" id="website-Portofolio">
+            <div class="Portofolio-scroller">
+                <div class="Portofolio-item">
+                    <a href="https://batamsamuderapase.com" target="_blank" style="text-decoration: none; color: inherit;">
+                        <div class="Portofolio-image">
+                            <img src="BSP.png" alt="Website Project 1">
+                        </div>
+                        <div class="Portofolio-info">
+                            <h3>Batam Samudera Pase</h3>
+                            <p>Scrap Management</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        
+        <!-- Design Portofolio -->
+        <div class="Portofolio-content" id="design-Portofolio">
+            <div class="Portofolio-scroller">
+                <div class="Portofolio-item">
+                    <div class="Portofolio-image">
+                        <img src="Design/1.jpeg" alt="Design Project 1" onclick="openLightbox(this.src)">
+                    </div>
+                    <div class="Portofolio-info">
+                        <h3>Nubar Anditama</h3>
+                        <p>Writer Recruitment</p>
+                    </div>
+                </div>
+
+                
+                <div class="Portofolio-item">
+                    <div class="Portofolio-image">
+                        <img src="Design/2.jpeg" alt="Design Project 1" onclick="openLightbox(this.src)">
+                        <img src="Design/2.jpeg" alt="Design Project 2">
+                    </div>
+                    <div class="Portofolio-info">
+                        <h3>Tahfidz Qur'an</h3>
+                        <p>Participant Recruitment Promotion</p>
+                    </div>
+                </div>
+                
+                <div class="Portofolio-item">
+                    <div class="Portofolio-image">
+                        <img src="Design/3.jpeg" alt="Design Project 1" onclick="openLightbox(this.src)">
+                        <img src="Design/3.jpeg" alt="Design Project 3">
+                    </div>
+                    <div class="Portofolio-info">
+                        <h3>Follow Cafe</h3>
+                        <p>Promotion</p>
+                    </div>
+                </div>
+                
+                <div class="Portofolio-item">
+                    <div class="Portofolio-image">
+                        <img src="Design/4.jpeg" alt="Design Project 1" onclick="openLightbox(this.src)">
+                        <img src="Design/4.jpeg" alt="Design Project 4">
+                    </div>
+                    <div class="Portofolio-info">
+                        <h3>Gebuk</h3>
+                        <p>Recruitment</p>
+                    </div>
+                </div>
+                <div class="Portofolio-item">
+                    <div class="Portofolio-image">
+                        <img src="Design/5.jpeg" alt="Design Project 1" onclick="openLightbox(this.src)">
+                        <img src="Design/5.jpeg" alt="Design Project 5">
+                    </div>
+                    <div class="Portofolio-info">
+                        <h3>Gebuk</h3>
+                        <p>Daily Post</p>
+                    </div>
+                </div>
+                <div class="Portofolio-item">
+                    <div class="Portofolio-image">
+                        <img src="Design/6.jpeg" alt="Design Project 1" onclick="openLightbox(this.src)">
+                        <img src="Design/6.jpeg" alt="Design Project 6">
+                    </div>
+                    <div class="Portofolio-info">
+                        <h3>Gebuk</h3>
+                        <p>Daily Post</p>
+                    </div>
+                </div>
+                <div class="Portofolio-item">
+                    <div class="Portofolio-image">
+                        <img src="Design/7.jpeg" alt="Design Project 1" onclick="openLightbox(this.src)">
+                        <img src="Design/7.jpeg" alt="Design Project 7">
+                    </div>
+                    <div class="Portofolio-info">
+                        <h3>Gebuk</h3>
+                        <p>Daily Post</p>
+                    </div>
+                </div>
+                <div class="Portofolio-item">
+                    <div class="Portofolio-image">
+                        <img src="Design/8.jpeg" alt="Design Project 1" onclick="openLightbox(this.src)">
+                        <img src="Design/8.jpeg" alt="Design Project 8">
+                    </div>
+                    <div class="Portofolio-info">
+                        <h3>Masjid Nurul Ikhlas Tanah Merah</h3>
+                        <p>Commemoration of the Prophet Muhammad's Birthday</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Program Portofolio -->
+        <div class="Portofolio-content" id="program-Portofolio">
+            <div class="Portofolio-scroller">
+                <div class="Portofolio-item">
+                    <div class="Portofolio-image">
+                        <iframe id="pdfFrame" src="Training.pdf" 
+                                width="100%" 
+                                height="600px" 
+                                style="border: none;">
+                        </iframe>
+                        <button onclick="openLightbox()">Maximize</button>
+                    </div>
+                    <div class="Portofolio-info">
+                        <h3>Training & Development</h3>
+                        <p>Create a program from scratch to running</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Papers Section -->
+    <section class="papers" id="papers">
+        <h2 class="section-title">Research Papers</h2>
+        
+        <div class="papers-container">
+            <div class="paper-card">
+                <div class="paper-icon"><i class="fas fa-file-alt"></i></div>
+                <h3 class="paper-title">KPI Design of Waste Treatment Company Performance Measurement</h3>
+                <div class="paper-meta">
+                    <span class="paper-year">2024</span>
+                    <span class="paper-publisher">Ibnu Sina University - Batam</span>
+                </div>
+                <p class="paper-method">Method: Balanced Scorecard</p>
+            </div>
+            
+            <div class="paper-card">
+                <div class="paper-icon"><i class="fas fa-file-alt"></i></div>
+                <h3 class="paper-title">Savings and Loan Cooperative Development Strategy</h3>
+                <div class="paper-meta">
+                    <span class="paper-year">2020</span>
+                    <span class="paper-publisher">Ibnu Sina University - Batam</span>
+                </div>
+                <p class="paper-method">Method: SWOT & AHP</p>
+            </div>
+            
+            <div class="paper-card">
+                <div class="paper-icon"><i class="fas fa-newspaper"></i></div>
+                <h3 class="paper-title">Positive Self-Esteem in Facing the Corona</h3>
+                <div class="paper-meta">
+                    <span class="paper-year">2020</span>
+                    <span class="paper-publisher">Haluan Kepri</span>
+                </div>
+            </div>
+            
+            <div class="paper-card">
+                <div class="paper-icon"><i class="fas fa-newspaper"></i></div>
+                <h3 class="paper-title">LDK in Filling Islamic Education on Campus</h3>
+                <div class="paper-meta">
+                    <span class="paper-year">2019</span>
+                    <span class="paper-publisher">Haluan Kepri</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Organizational Experience -->
+    <section class="organizations" id="organizations">
+        <h2 class="section-title">Organizational Experience</h2>
+        
+        <div class="org-timeline">
+            <div class="org-item">
+                <div class="org-period">2020-2023</div>
+                <div class="org-content">
+                    <div class="org-logo">
+                        <img src="KT.png" alt="Beringin Jaya Logo">
+                    </div>
+                    <h3>Deputy Treasurer</h3>
+                    <p>Youth Organization Beringin Jaya, Tanah Merah</p>
+                </div>
+            </div>
+            
+            <div class="org-item">
+                <div class="org-period">2020</div>
+                <div class="org-content">
+                    <div class="org-logo">
+                        <img src="BIS.png" alt="Ibnu Sina University Logo">
+                    </div>
+                    <h3>Coordinating Minister for Foreign Affairs</h3>
+                    <p>Ibnu Sina University Student Executive Board</p>
+                </div>
+            </div>
+            
+            <div class="org-item">
+                <div class="org-period">2020</div>
+                <div class="org-content">
+                    <div class="org-logo">
+                        <img src="forsi.jpeg" alt="FORSI Logo">
+                    </div>
+                    <h3>Head of Human Resource Development</h3>
+                    <p>Islamic Studies Forum (FORSI) Ibnu Sina University</p>
+                </div>
+            </div>
+            
+            <div class="org-item">
+                <div class="org-period">2019-2020</div>
+                <div class="org-content">
+                    <div class="org-logo">
+                        <img src="KB.png" alt="KAMMI Logo">
+                    </div>
+                    <h3>Head of Human Resource Department</h3>
+                    <p>KAMMI Hang Nadim, Batam</p>
+                </div>
+            </div>
+            
+            <div class="org-item">
+                <div class="org-period">2019</div>
+                <div class="org-content">
+                    <div class="org-logo">
+                        <img src="UIS.png" alt="FORMIST Logo">
+                    </div>
+                    <h3>Chairperson</h3>
+                    <p>STT Ibnu Sina Islamic Student Forum (FORMIST)</p>
+                </div>
+            </div>
+            
+            <div class="org-item">
+                <div class="org-period">2018-2019</div>
+                <div class="org-content">
+                    <div class="org-logo">
+                        <img src="KHN.png" alt="KAMMI Logo">
+                    </div>
+                    <h3>Head of Public Policy Department</h3>
+                    <p>KAMMI Hang Nadim Batam</p>
+                </div>
+            </div>
+            
+            <div class="org-item">
+                <div class="org-period">2018</div>
+                <div class="org-content">
+                    <div class="org-logo">
+                        <img src="UIS.png" alt="STT Logo">
+                    </div>
+                    <h3>Minister of Research and Development</h3>
+                    <p>STT Ibnu Sina Student Executive Board</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2>Get In Touch</h2>
+        
+        <div class="contact-info">
+            <div class="contact-item">
+                <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                <a href="mailto:Deniyupiki11@gmail.com" class="contact-link">Deniyupiki11@gmail.com</a>
+            </div>
+            
+            <div class="contact-item">
+                <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                <a href="tel:085263748817" class="contact-link">085263748817</a>
+            </div>
+            
+            <div class="contact-item">
+                <div class="contact-icon"><i class="fab fa-linkedin"></i></div>
+                <a href="https://www.linkedin.com/in/deniyupiki/" target="_blank" class="contact-link">linkedin.com/in/deniyupiki</a>
+            </div>
+        </div>
+    </section>
+    
+    <script>
+
+        document.querySelectorAll('.dropdown > a').forEach(dropdownToggle => {
+    dropdownToggle.addEventListener('click', function (e) {
+        e.preventDefault();
+        const parentDropdown = this.parentElement;
+        parentDropdown.classList.toggle('active');
+    });
+});
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mainNav = document.getElementById('mainNav');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+        });
+
+        // Smooth Scrolling for Navigation
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+                
+                // Update active nav item
+                document.querySelectorAll('nav a').forEach(link => {
+                    link.classList.remove('active');
+                });
+                this.classList.add('active');
+                
+                // Close mobile menu if open
+                mainNav.classList.remove('active');
+
+                // Jika menu ada di dropdown, sorot juga menu dropdown induk
+        const dropdownParent = activeLink?.closest('.dropdown');
+        if (dropdownParent) {
+            dropdownParent.querySelector('a').classList.add('active'); // Sorot menu induk
+        }
+            });
+        });
+
+        // Active Navigation on Scroll
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('nav a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Portofolio Tab Switching
+        const PortofolioTabs = document.querySelectorAll('.Portofolio-tab');
+        const PortofolioContents = document.querySelectorAll('.Portofolio-content');
+
+        PortofolioTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const tabId = tab.getAttribute('data-tab');
+                
+                PortofolioTabs.forEach(t => t.classList.remove('active'));
+                PortofolioContents.forEach(c => c.classList.remove('active'));
+                
+                tab.classList.add('active');
+                document.getElementById(`${tabId}-Portofolio`).classList.add('active');
+            });
+        });
+
+        // Animate progress bars on scroll
+        function animateOnScroll() {
+            const progressBars = document.querySelectorAll('.progress');
+            progressBars.forEach(bar => {
+                const rect = bar.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 100) {
+                    bar.style.width = bar.getAttribute('style').split('width: ')[1];
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', animateOnScroll);
+        animateOnScroll(); // Run once on load
+        
+        // Timeline details toggle
+        const toggleButtons = document.querySelectorAll('.toggle-details');
+        toggleButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const details = button.nextElementSibling;
+                details.classList.toggle('show');
+                
+                if (details.classList.contains('show')) {
+                    button.innerHTML = 'Hide Details <i class="fas fa-chevron-up"></i>';
+                } else {
+                    button.innerHTML = 'Show Details <i class="fas fa-chevron-down"></i>';
+                }
+            });
+        });
+        
+        // Skill tooltips
+        const skillDots = document.querySelectorAll('.skill-dot');
+        const tooltip = document.createElement('div');
+        tooltip.className = 'skill-tooltip';
+        document.body.appendChild(tooltip);
+        
+        skillDots.forEach(dot => {
+            dot.addEventListener('mouseenter', (e) => {
+                const skillText = dot.previousElementSibling.textContent;
+                let tooltipText = '';
+                
+                // Add example achievements for each skill
+                switch(skillText) {
+                    case 'Production Process':
+                        tooltipText = 'Increased line efficiency from 70% to 95% at Sumitomo';
+                        break;
+                    case 'Performance Measurement':
+                        tooltipText = 'Designed KPI systems using Balanced Scorecard method';
+                        break;
+                    case 'Writing':
+                        tooltipText = '2nd Place in Opinion Writing Competition (BP Batam)';
+                        break;
+                    case 'Google Workspace':
+                        tooltipText = 'Used for documentation, reporting, and collaboration';
+                        break;
+                    case 'Microsoft Office':
+                        tooltipText = 'Advanced Excel for data analysis and reporting';
+                        break;
+                    case 'Business Development':
+                        tooltipText = 'Cooperative development strategy using SWOT/AHP';
+                        break;
+                    default:
+                        tooltipText = skillText;
+                }
+                
+                tooltip.textContent = tooltipText;
+                tooltip.style.opacity = '1';
+                
+                const rect = dot.getBoundingClientRect();
+                tooltip.style.left = `${rect.left + window.scrollX}px`;
+                tooltip.style.top = `${rect.top + window.scrollY - 40}px`;
+            });
+            
+            dot.addEventListener('mouseleave', () => {
+                tooltip.style.opacity = '0';
+            });
+        });
+        
+        // Photo loading effect
+        document.addEventListener('DOMContentLoaded', function() {
+            const photo = document.querySelector('.photo-container img');
+            photo.style.opacity = '0';
+            photo.style.transition = 'opacity 1s ease';
+            
+            setTimeout(() => {
+                photo.style.opacity = '1';
+            }, 500);
+        });
+
+    // Ambil elemen-elemen yang diperlukan
+const floatingButton = document.getElementById('floatingButton');
+const contactMenu = document.getElementById('contactMenu');
+
+// Tambahkan event listener untuk toggle menu
+floatingButton.addEventListener('click', () => {
+    if (contactMenu.style.display === 'block') {
+        contactMenu.style.display = 'none'; // Sembunyikan menu
+    } else {
+        contactMenu.style.display = 'block'; // Tampilkan menu
+    }
+});
+
+// Sembunyikan menu jika pengguna klik di luar menu
+document.addEventListener('click', (event) => {
+    if (!floatingButton.contains(event.target) && !contactMenu.contains(event.target)) {
+        contactMenu.style.display = 'none';
+    }
+});
+    </script>
+    <script>
+        // Ligh Box
+        function openLightbox(src) {
+            document.getElementById("lightbox-img").src = src;
+            document.getElementById("lightbox").style.display = "block";
+        }
+
+        function closeLightbox() {
+            document.getElementById("lightbox").style.display = "none";
+        }
+    </script>
+
+      <!-- Lightbox Overlay -->
+      <div id="lightbox" onclick="closeLightbox()">
+        <span class="close">&times;</span>
+        <img id="lightbox-img" src="">
+        </div>
+</body>
+</html>
